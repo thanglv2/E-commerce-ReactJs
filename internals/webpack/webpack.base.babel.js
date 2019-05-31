@@ -28,7 +28,7 @@ module.exports = options => ({
         },
       },
       {
-        test: /\.ts|tsx?$/, // Transform all .js and .jsx files required somewhere with Babel
+        test: /\.ts|tsx?$/, // Transform all .ts and .tsx files required somewhere with ts-loader
         exclude: /node_modules/,
         use: {
           loader: 'ts-loader',

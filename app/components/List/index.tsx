@@ -4,9 +4,14 @@ import PropTypes from 'prop-types';
 import Ul from './Ul';
 import Wrapper from './Wrapper';
 
-function List(props) {
+export interface Props {
+  component: React.ElementType;
+  items?: Element[];
+}
+
+function List(props: Props) {
   const ComponentToRender = props.component;
-  let content = <div />;
+  let content: any;
 
   // If we have items, render them
   if (props.items) {
@@ -14,7 +19,6 @@ function List(props) {
       <ComponentToRender key={`item-${item.id}`} item={item} />
     ));
   } else {
-    // Otherwise render a single component
     content = <ComponentToRender />;
   }
 
@@ -24,10 +28,5 @@ function List(props) {
     </Wrapper>
   );
 }
-
-List.propTypes = {
-  component: PropTypes.elementType.isRequired,
-  items: PropTypes.array,
-};
 
 export default List;

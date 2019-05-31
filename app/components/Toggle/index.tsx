@@ -5,13 +5,19 @@
  */
 
 import React from 'react';
-import PropTypes from 'prop-types';
 
 import Select from './Select';
 import ToggleOption from '../ToggleOption';
 
-function Toggle(props) {
-  let content = <option>--</option>;
+export interface Props {
+  onToggle?: () => void;
+  values?: any[];
+  value?: string;
+  messages?: object;
+}
+
+function Toggle(props: Props) {
+  let content: any;
 
   // If we have items, render them
   if (props.values) {
@@ -22,16 +28,9 @@ function Toggle(props) {
 
   return (
     <Select value={props.value} onChange={props.onToggle}>
-      {content}
+      {content || <option>--</option>}
     </Select>
   );
 }
-
-Toggle.propTypes = {
-  onToggle: PropTypes.func,
-  values: PropTypes.array,
-  value: PropTypes.string,
-  messages: PropTypes.object,
-};
 
 export default Toggle;

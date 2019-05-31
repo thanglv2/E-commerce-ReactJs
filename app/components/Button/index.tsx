@@ -13,7 +13,14 @@ import A from './A';
 import StyledButton from './StyledButton';
 import Wrapper from './Wrapper';
 
-function Button(props) {
+export interface Props {
+  handleRoute?: () => void;
+  href?: string;
+  onClick?: () => void;
+  children: React.ReactNode;
+}
+
+function Button(props: Props) {
   // Render an anchor tag
   let button = (
     <A href={props.href} onClick={props.onClick}>
@@ -32,12 +39,5 @@ function Button(props) {
 
   return <Wrapper>{button}</Wrapper>;
 }
-
-Button.propTypes = {
-  handleRoute: PropTypes.func,
-  href: PropTypes.string,
-  onClick: PropTypes.func,
-  children: PropTypes.node.isRequired,
-};
 
 export default Button;
