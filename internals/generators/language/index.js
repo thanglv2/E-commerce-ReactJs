@@ -48,7 +48,7 @@ module.exports = {
       actions.push({
         type: 'backup',
         path: '../../app',
-        file: 'app.js',
+        file: 'app.jsx',
       });
     }
 

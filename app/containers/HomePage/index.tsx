@@ -44,7 +44,7 @@ export function HomePage({
   onChangeUsername,
 }) {
   useInjectReducer({ key, reducer });
-  useInjectSaga({ key, saga });
+  useInjectSaga({ key, saga, mode: null });
 
   useEffect(() => {
     // When initial state username is not null, submit the form to load repos
