@@ -42,12 +42,24 @@ module.exports = options => ({
         loader: 'source-map-loader',
       },
       {
-        // Preprocess our own .css files
+        // Preprocess our own .less files
         // This is the place to add your own loaders (e.g. sass/less etc.)
         // for a list of loaders, see https://webpack.js.org/loaders/#styling
-        test: /\.css$/,
+        test: /\.less$/,
         exclude: /node_modules/,
-        use: ['style-loader', 'css-loader'],
+        use: [
+          'style-loader',
+          {
+            loader: 'css-loader',
+            options: {
+              importLoaders: 1,
+              sourceMap: true,
+              modules: true,
+              localIdentName: '[local]___[hash:base64:5]',
+            },
+          },
+          'less-loader',
+        ],
       },
       {
         // Preprocess 3rd party .css files located in node_modules

@@ -7,11 +7,9 @@
  */
 
 import React, { Children } from 'react';
-import PropTypes from 'prop-types';
 
 import A from './A';
-import StyledButton from './StyledButton';
-import Wrapper from './Wrapper';
+import './Button.less';
 
 export interface Props {
   handleRoute?: () => void;
@@ -31,13 +29,13 @@ function Button(props: Props) {
   // If the Button has a handleRoute prop, we want to render a button
   if (props.handleRoute) {
     button = (
-      <StyledButton onClick={props.handleRoute}>
+      <button onClick={props.handleRoute}>
         {Children.toArray(props.children)}
-      </StyledButton>
+      </button>
     );
   }
 
-  return <Wrapper>{button}</Wrapper>;
+  return <div className="wrapper">{button}</div>;
 }
 
 export default Button;

@@ -4,12 +4,14 @@
  * This is the first thing users see of our App, at the '/' route
  */
 
-import React, { useEffect } from 'react';
+import React, { useEffect, memo } from 'react';
 import { Helmet } from 'react-helmet';
 import { FormattedMessage } from 'react-intl';
 import { useSelector, useDispatch } from 'react-redux';
 import { useInjectReducer } from 'utils/injectReducer';
 import { useInjectSaga } from 'utils/injectSaga';
+import classNames from 'classnames';
+
 import {
   makeSelectRepos,
   makeSelectLoading,
@@ -17,11 +19,7 @@ import {
 } from 'containers/App/selectors';
 import H2 from 'components/H2';
 import ReposList from 'components/ReposList';
-import AtPrefix from './AtPrefix';
-import CenteredSection from './CenteredSection';
-import Form from './Form';
-import Input from './Input';
-import Section from './Section';
+import styles from './HomePage.less';
 import messages from './messages';
 import { loadRepos } from '../App/actions';
 import { changeUsername } from './actions';
@@ -31,7 +29,7 @@ import saga from './saga';
 
 const key = 'home';
 
-export default function HomePage() {
+export function HomePage() {
   const repos = useSelector(makeSelectRepos());
   const username = useSelector(makeSelectUsername());
   const loading = useSelector(makeSelectLoading());
@@ -68,25 +66,25 @@ export default function HomePage() {
         />
       </Helmet>
       <div>
-        <CenteredSection>
+        <section className={classNames(styles.defaultSection, styles.center)}>
           <H2>
             <FormattedMessage {...messages.startProjectHeader} />
           </H2>
           <p>
             <FormattedMessage {...messages.startProjectMessage} />
           </p>
-        </CenteredSection>
-        <Section>
+        </section>
+        <section  className={styles.defaultSection}>
           <H2>
             <FormattedMessage {...messages.trymeHeader} />
           </H2>
-          <Form onSubmit={onSubmitForm}>
+          <form onSubmit={onSubmitForm}>
             <label htmlFor="username">
               <FormattedMessage {...messages.trymeMessage} />
-              <AtPrefix>
+              <span className={styles.centerSpan}>
                 <FormattedMessage {...messages.trymeAtPrefix} />
-              </AtPrefix>
-              <Input
+              </span>
+              <input
                 id="username"
                 type="text"
                 placeholder="mxstbr"
@@ -94,10 +92,12 @@ export default function HomePage() {
                 onChange={onChangeUsername}
               />
             </label>
-          </Form>
+          </form>
           <ReposList {...reposListProps} />
-        </Section>
+        </section>
       </div>
     </article>
   );
 }
+
+export default memo(HomePage);

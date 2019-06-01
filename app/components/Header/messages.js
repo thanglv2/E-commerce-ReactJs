@@ -12,8 +12,16 @@ export default defineMessages({
     id: `${scope}.home`,
     defaultMessage: 'Home',
   },
-  features: {
-    id: `${scope}.features`,
-    defaultMessage: 'Features',
+  productList: {
+    id: `${scope}.productList`,
+    defaultMessage: 'Product List',
+  },
+  productDetail: {
+    id: `${scope}.productDetail`,
+    defaultMessage: 'Product Detail',
+  },
+  shoppingCart: {
+    id: `${scope}.shoppingCart`,
+    defaultMessage: 'Shopping Cart',
   },
 });

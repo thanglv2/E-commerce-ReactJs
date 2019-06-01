@@ -12,25 +12,19 @@ import styled from 'styled-components';
 import { Switch, Route } from 'react-router-dom';
 
 import HomePage from 'containers/HomePage/Loadable';
-import FeaturePage from 'containers/FeaturePage/Loadable';
+import ProductList from 'containers/ProductList/Loadable';
+import ProductDetail from 'containers/ProductDetail/Loadable';
+import ShoppingCart from 'containers/ShoppingCart/Loadable';
 import NotFoundPage from 'containers/NotFoundPage/Loadable';
 import Header from 'components/Header';
 import Footer from 'components/Footer';
 
 import GlobalStyle from '../../global-styles';
-
-const AppWrapper = styled.div`
-  max-width: calc(768px + 16px * 2);
-  margin: 0 auto;
-  display: flex;
-  min-height: 100%;
-  padding: 0 16px;
-  flex-direction: column;
-`;
+import styles from './App.less';
 
 export default function App() {
   return (
-    <AppWrapper>
+    <div className={styles.appWrapper}>
       <Helmet
         titleTemplate="%s - React.js Boilerplate"
         defaultTitle="React.js Boilerplate"
@@ -40,11 +34,13 @@ export default function App() {
       <Header />
       <Switch>
         <Route exact path="/" component={HomePage} />
-        <Route path="/features" component={FeaturePage} />
+        <Route path="/product-list" component={ProductList} />
+        <Route path="/products/:product_id" component={ProductDetail} />
+        <Route path="/shopping-cart" component={ShoppingCart} />
         <Route path="" component={NotFoundPage} />
       </Switch>
       <Footer />
       <GlobalStyle />
-    </AppWrapper>
+    </div>
   );
 }

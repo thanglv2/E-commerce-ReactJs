@@ -1,14 +1,14 @@
 import React from 'react';
 import { FormattedMessage } from 'react-intl';
 
+import './Footer.less'
 import A from 'components/A';
 import LocaleToggle from 'containers/LocaleToggle';
-import Wrapper from './Wrapper';
 import messages from './messages';
 
 function Footer() {
   return (
-    <Wrapper>
+    <footer>
       <section>
         <FormattedMessage {...messages.licenseMessage} />
       </section>
@@ -23,7 +23,7 @@ function Footer() {
           }}
         />
       </section>
-    </Wrapper>
+    </footer>
   );
 }
 

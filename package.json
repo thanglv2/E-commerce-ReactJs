@@ -66,6 +66,7 @@
   "dependencies": {
     "@babel/polyfill": "7.4.3",
     "chalk": "2.4.2",
+    "classnames": "^2.2.6",
     "compression": "1.7.4",
     "connected-react-router": "6.4.0",
     "cross-env": "5.2.0",
@@ -140,6 +141,8 @@
     "jest-cli": "24.7.1",
     "jest-dom": "3.1.3",
     "jest-styled-components": "6.3.1",
+    "less": "^3.9.0",
+    "less-loader": "^5.0.0",
     "lint-staged": "8.1.5",
     "ngrok": "3.1.1",
     "node-plop": "0.18.0",
