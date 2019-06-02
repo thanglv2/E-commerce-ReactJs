@@ -15,18 +15,36 @@
  *    }
  */
 
-import { CHANGE_USERNAME } from './constants';
+import {
+  CHANGE_ITEM_NAME,
+  ITEMS_LOADED,
+  ITEMS_LOADING_ERROR,
+} from './constants';
 
 /**
  * Changes the input field of the form
  *
- * @param  {string} username The new text of the input field
+ * @param  {string} itemName The new text of the input field
  *
  * @return {object} An action object with a type of CHANGE_USERNAME
  */
-export function changeUsername(username) {
+export function changeItemName(itemName) {
   return {
-    type: CHANGE_USERNAME,
-    username,
+    type: CHANGE_ITEM_NAME,
+    itemName,
+  };
+}
+
+export function itemsLoaded(items) {
+  return {
+    type: ITEMS_LOADED,
+    items,
+  };
+}
+
+export function itemsLoadingError(error) {
+  return {
+    type: ITEMS_LOADING_ERROR,
+    error,
   };
 }

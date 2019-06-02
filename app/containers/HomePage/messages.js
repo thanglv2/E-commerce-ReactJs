@@ -23,7 +23,7 @@ export default defineMessages({
   },
   trymeMessage: {
     id: `${scope}.tryme.message`,
-    defaultMessage: 'Show Github repositories by',
+    defaultMessage: 'Show items list of',
   },
   trymeAtPrefix: {
     id: `${scope}.tryme.atPrefix`,

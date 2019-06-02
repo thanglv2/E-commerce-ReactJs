@@ -1,0 +1,4 @@
+{
+  "/posts/:id/comment": "/comments?productId=:id",
+  "/categories/:cat_id/products": "/products?category=:cat_id"
+}

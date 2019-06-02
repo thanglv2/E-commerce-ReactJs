@@ -1,0 +1,31 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "Product_1",
+      "image": "https://fake_image.jpg",
+      "price": "1000000",
+      "category": 1
+    },
+    {
+      "id": 2,
+      "name": "Product_2",
+      "image": "https://fake_image.jpg",
+      "price": "2000000",
+      "category": 2
+    },
+    {
+      "id": 3,
+      "name": "Product_3",
+      "image": "https://fake_image.jpg",
+      "price": "3000000",
+      "category": 1
+    }
+  ],
+  "categories": [{ "id": 1, "name": "cat_1" }, { "id": 2, "name": "cat_2" }],
+  "comments": [
+    { "id": 1, "body": "some comment 1", "productId": 1 },
+    { "id": 2, "body": "some comment 2", "productId": 1 },
+    { "id": 3, "body": "some comment 3", "productId": 2 }
+  ]
+}

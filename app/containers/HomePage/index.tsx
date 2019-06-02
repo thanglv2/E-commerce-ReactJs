@@ -18,12 +18,12 @@ import {
   makeSelectError,
 } from 'containers/App/selectors';
 import H2 from 'components/H2';
-import ReposList from 'components/ReposList';
+// import ReposList from 'components/ReposList';
 import styles from './HomePage.less';
 import messages from './messages';
 import { loadRepos } from '../App/actions';
-import { changeUsername } from './actions';
-import { makeSelectUsername } from './selectors';
+import { changeItemName } from './actions';
+import { makeSelectItemName, makeSelectItems } from './selectors';
 import reducer from './reducer';
 import saga from './saga';
 
@@ -31,13 +31,14 @@ const key = 'home';
 
 export function HomePage() {
   const repos = useSelector(makeSelectRepos());
-  const username = useSelector(makeSelectUsername());
+  const itemName = useSelector(makeSelectItemName());
   const loading = useSelector(makeSelectLoading());
   const error = useSelector(makeSelectError());
+  const items = useSelector(makeSelectItems());
 
   const dispatch = useDispatch();
 
-  const onChangeUsername = evt => dispatch(changeUsername(evt.target.value));
+  const onChangeItemName = evt => dispatch(changeItemName(evt.target.value));
   const onSubmitForm = (evt?) => {
     if (evt !== undefined && evt.preventDefault) evt.preventDefault();
     dispatch(loadRepos());
@@ -47,7 +48,7 @@ export function HomePage() {
 
   useEffect(() => {
     // When initial state username is not null, submit the form to load repos
-    if (username && username.trim().length > 0) onSubmitForm();
+    if (itemName && itemName.trim().length > 0) onSubmitForm();
   }, []);
 
   const reposListProps = {
@@ -55,6 +56,8 @@ export function HomePage() {
     error,
     repos,
   };
+
+  console.log(items)
 
   return (
     <article>
@@ -79,21 +82,21 @@ export function HomePage() {
             <FormattedMessage {...messages.trymeHeader} />
           </H2>
           <form onSubmit={onSubmitForm}>
-            <label htmlFor="username">
+            <label htmlFor="itemName">
               <FormattedMessage {...messages.trymeMessage} />
               <span className={styles.centerSpan}>
                 <FormattedMessage {...messages.trymeAtPrefix} />
               </span>
               <input
-                id="username"
+                id="itemName"
                 type="text"
-                placeholder="mxstbr"
-                value={username}
-                onChange={onChangeUsername}
+                placeholder="products"
+                value={itemName}
+                onChange={onChangeItemName}
               />
             </label>
           </form>
-          <ReposList {...reposListProps} />
+          {/* <ReposList {...reposListProps} /> */}
         </section>
       </div>
     </article>
