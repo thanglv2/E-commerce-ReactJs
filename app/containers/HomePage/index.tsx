@@ -21,9 +21,9 @@ import H2 from 'components/H2';
 // import ReposList from 'components/ReposList';
 import styles from './HomePage.less';
 import messages from './messages';
-import { loadRepos } from '../App/actions';
-import { changeItemName } from './actions';
-import { makeSelectItemName, makeSelectItems } from './selectors';
+// import { loadRepos } from '../App/actions';
+import { changeItemName, loadItems } from './actions';
+import { makeSelectItemName, makeSelectItems, makeLoadingItems } from './selectors';
 import reducer from './reducer';
 import saga from './saga';
 
@@ -35,13 +35,14 @@ export function HomePage() {
   // const loading : boolean = useSelector(makeSelectLoading());
   // const error : object = useSelector(makeSelectError());
   const items : any[] = useSelector(makeSelectItems());
+  const loadingItems : boolean = useSelector(makeLoadingItems());
 
   const dispatch = useDispatch();
 
   const onChangeItemName = ({target} : {target: HTMLInputElement}) => dispatch(changeItemName(target.value));
   const onSubmitForm = (evt? : FormEvent) => {
     if (evt !== undefined && evt.preventDefault) evt.preventDefault();
-    dispatch(loadRepos());
+    dispatch(loadItems());
   };
   useInjectReducer({ key, reducer });
   useInjectSaga({ key, saga, mode: null });
@@ -56,8 +57,6 @@ export function HomePage() {
   //   error,
   //   repos,
   // };
-
-  console.log(items)
 
   return (
     <article>
@@ -77,7 +76,7 @@ export function HomePage() {
             <FormattedMessage {...messages.startProjectMessage} />
           </p>
         </section>
-        <section  className={styles.defaultSection}>
+        <section className={styles.defaultSection}>
           <H2>
             <FormattedMessage {...messages.trymeHeader} />
           </H2>
@@ -97,6 +96,9 @@ export function HomePage() {
             </label>
           </form>
           {/* <ReposList {...reposListProps} /> */}
+        </section>
+        <section className={classNames(styles.defaultSection, styles.center)}>
+          {loadingItems && <span className={styles.centerSpan}>Loading...</span>}
         </section>
       </div>
     </article>

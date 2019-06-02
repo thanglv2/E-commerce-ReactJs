@@ -3,7 +3,9 @@
  */
 
 import { createSelector } from 'reselect';
+import { selectLoading, stateOfAction } from 'utils/loadingUtil';
 import { initialState } from './reducer';
+import { LOAD_ITEMS } from './constants';
 
 const selectHome = state => state.home || initialState;
 
@@ -19,4 +21,10 @@ const makeSelectItems = () =>
     homeState => homeState.items,
   );
 
-export { selectHome, makeSelectItemName, makeSelectItems };
+const makeLoadingItems = () =>
+  createSelector(
+    selectLoading,
+    loadingState => loadingState[stateOfAction(LOAD_ITEMS)],
+  );
+
+export { selectHome, makeSelectItemName, makeSelectItems, makeLoadingItems };

@@ -3,11 +3,12 @@
  */
 
 import { call, put, select, takeLatest } from 'redux-saga/effects';
-import { LOAD_REPOS } from 'containers/App/constants';
+// import { LOAD_REPOS } from 'containers/App/constants';
 
 import request from 'utils/request';
 import { makeSelectItemName } from 'containers/HomePage/selectors';
 import { itemsLoaded, itemsLoadingError } from './actions';
+import { LOAD_ITEMS } from './constants';
 
 /**
  * Github repos request/response handler
@@ -33,5 +34,5 @@ export function* getItems() {
  * Root saga manages watcher lifecycle
  */
 export default function* githubData() {
-  yield takeLatest(LOAD_REPOS, getItems);
+  yield takeLatest(LOAD_ITEMS, getItems);
 }

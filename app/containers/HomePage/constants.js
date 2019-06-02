@@ -10,5 +10,6 @@
  */
 
 export const CHANGE_ITEM_NAME = 'boilerplate/Home/CHANGE_ITEM_NAME';
-export const ITEMS_LOADED = 'boilerplate/Home/ITEMS_LOADED';
-export const ITEMS_LOADING_ERROR = 'boilerplate/Home/ITEMS_LOADING_ERROR';
+export const LOAD_ITEMS = 'boilerplate/Home/LOAD_ITEMS_REQUEST';
+export const ITEMS_LOADED = 'boilerplate/Home/LOAD_ITEMS_SUCCESS';
+export const ITEMS_LOADING_ERROR = 'boilerplate/Home/LOAD_ITEMS_ERROR';

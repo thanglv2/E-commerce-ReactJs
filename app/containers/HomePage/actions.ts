@@ -19,6 +19,7 @@ import {
   CHANGE_ITEM_NAME,
   ITEMS_LOADED,
   ITEMS_LOADING_ERROR,
+  LOAD_ITEMS
 } from './constants';
 
 import {Action} from 'utils/interfaces';
@@ -47,5 +48,11 @@ export function itemsLoadingError(error: object): Action {
   return {
     type: ITEMS_LOADING_ERROR,
     error,
+  };
+}
+
+export function loadItems() {
+  return {
+    type: LOAD_ITEMS
   };
 }
