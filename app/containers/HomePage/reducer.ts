@@ -13,16 +13,23 @@ import {
   ITEMS_LOADED,
   ITEMS_LOADING_ERROR,
 } from './constants';
+import { Action } from 'utils/interfaces';
 
 // The initial state of the App
-export const initialState = {
+export type State = {
+  readonly itemName: string;
+  readonly items: ReadonlyArray<any>;
+  readonly error: object;
+};
+
+export const initialState: State = {
   itemName: '',
   items: [],
   error: null,
 };
 
 /* eslint-disable default-case, no-param-reassign */
-const homeReducer = (state = initialState, action) =>
+const homeReducer = (state = initialState, action: Action) =>
   produce(state, draft => {
     switch (action.type) {
       case CHANGE_ITEM_NAME:

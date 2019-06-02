@@ -17,7 +17,7 @@ import { itemsLoaded, itemsLoadingError } from './actions';
 
 export function* getItems() {
   // Select username from store
-  const itemName = yield select(makeSelectItemName());
+  const itemName : string = yield select(makeSelectItemName());
   const requestURL = `http://localhost:4000/${itemName}`; // https://github.com/typicode/json-server
 
   try {

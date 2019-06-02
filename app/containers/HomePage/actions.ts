@@ -21,6 +21,7 @@ import {
   ITEMS_LOADING_ERROR,
 } from './constants';
 
+import {Action} from 'utils/interfaces';
 /**
  * Changes the input field of the form
  *
@@ -28,21 +29,21 @@ import {
  *
  * @return {object} An action object with a type of CHANGE_USERNAME
  */
-export function changeItemName(itemName) {
+export function changeItemName(itemName: string): Action {
   return {
     type: CHANGE_ITEM_NAME,
     itemName,
   };
 }
 
-export function itemsLoaded(items) {
+export function itemsLoaded(items: any[]): Action {
   return {
     type: ITEMS_LOADED,
     items,
   };
 }
 
-export function itemsLoadingError(error) {
+export function itemsLoadingError(error: object): Action {
   return {
     type: ITEMS_LOADING_ERROR,
     error,

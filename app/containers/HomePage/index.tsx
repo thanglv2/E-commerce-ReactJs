@@ -4,7 +4,7 @@
  * This is the first thing users see of our App, at the '/' route
  */
 
-import React, { useEffect, memo } from 'react';
+import React, { useEffect, memo, FormEvent } from 'react';
 import { Helmet } from 'react-helmet';
 import { FormattedMessage } from 'react-intl';
 import { useSelector, useDispatch } from 'react-redux';
@@ -12,11 +12,11 @@ import { useInjectReducer } from 'utils/injectReducer';
 import { useInjectSaga } from 'utils/injectSaga';
 import classNames from 'classnames';
 
-import {
-  makeSelectRepos,
-  makeSelectLoading,
-  makeSelectError,
-} from 'containers/App/selectors';
+// import {
+//   makeSelectRepos,
+//   makeSelectLoading,
+//   makeSelectError,
+// } from 'containers/App/selectors';
 import H2 from 'components/H2';
 // import ReposList from 'components/ReposList';
 import styles from './HomePage.less';
@@ -30,16 +30,16 @@ import saga from './saga';
 const key = 'home';
 
 export function HomePage() {
-  const repos = useSelector(makeSelectRepos());
-  const itemName = useSelector(makeSelectItemName());
-  const loading = useSelector(makeSelectLoading());
-  const error = useSelector(makeSelectError());
-  const items = useSelector(makeSelectItems());
+  // const repos = useSelector(makeSelectRepos());
+  const itemName : string = useSelector(makeSelectItemName());
+  // const loading : boolean = useSelector(makeSelectLoading());
+  // const error : object = useSelector(makeSelectError());
+  const items : any[] = useSelector(makeSelectItems());
 
   const dispatch = useDispatch();
 
-  const onChangeItemName = evt => dispatch(changeItemName(evt.target.value));
-  const onSubmitForm = (evt?) => {
+  const onChangeItemName = ({target} : {target: HTMLInputElement}) => dispatch(changeItemName(target.value));
+  const onSubmitForm = (evt? : FormEvent) => {
     if (evt !== undefined && evt.preventDefault) evt.preventDefault();
     dispatch(loadRepos());
   };
@@ -51,11 +51,11 @@ export function HomePage() {
     if (itemName && itemName.trim().length > 0) onSubmitForm();
   }, []);
 
-  const reposListProps = {
-    loading,
-    error,
-    repos,
-  };
+  // const reposListProps = {
+  //   loading,
+  //   error,
+  //   repos,
+  // };
 
   console.log(items)
 
