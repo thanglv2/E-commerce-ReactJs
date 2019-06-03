@@ -5,19 +5,11 @@
  */
 
 import React from 'react';
-// import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
-// import { FormattedMessage } from 'react-intl';
-import { createStructuredSelector } from 'reselect';
-import { compose } from 'redux';
-
 import { useInjectSaga } from 'utils/injectSaga';
 import { useInjectReducer } from 'utils/injectReducer';
 import { VerticalMenuItem } from 'containers/VerticalMenuItem';
-import makeSelectVerticalMenu from './selectors';
 import reducer from './reducer';
 import saga from './saga';
-// import messages from './messages';
 
 const dataContent1 = [
   {
@@ -51,13 +43,9 @@ const dataContent1 = [
     ],
   },
 ];
-// const dataContent2 = dataContent1;
 const dataContent3 = dataContent1;
-// const dataContent4 = dataContent1;
-// const dataContent5 = dataContent1;
 const dataContent6 = dataContent1;
-// const dataContent7 = dataContent1;
-// const dataContent8 = dataContent1;
+
 
 export interface Props {
 
@@ -69,7 +57,6 @@ export function VerticalMenu(props: Props) {
 
   return (
     <div>
-      {/* <FormattedMessage {...messages.header} /> */}
       {/* Vertical Menu */}
       {/* <!-- NAVIGATION --> */}
       <div id="navigation">

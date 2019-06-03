@@ -5,11 +5,6 @@
  */
 
 import React, { useState, useRef } from 'react';
-import { connect } from 'react-redux';
-// import { FormattedMessage } from 'react-intl';
-import { createStructuredSelector } from 'reselect';
-import { compose } from 'redux';
-
 import { useInjectSaga } from 'utils/injectSaga';
 import { useInjectReducer } from 'utils/injectReducer';
 import reducer from './reducer';
@@ -21,12 +16,12 @@ export interface Props {
 }
 
 export function VerticalMenuItem(props: Props) {
-  console.log(props.data);
   useInjectReducer({ key: 'verticalMenuItem', reducer });
   useInjectSaga({ key: 'verticalMenuItem', saga, mode: null });
   const [open, setOpen] = useState(false);
   const menuItemDom = useRef(null);
   const toggleMenuItem = () => {
+    if (!props.data || !props.data.length) return
     const menuItems = menuItemDom.current.parentNode.querySelectorAll('.open');
     for (let i = 0; i < menuItems.length; i++) {
       const menuItem = menuItems[i];
@@ -48,7 +43,7 @@ export function VerticalMenuItem(props: Props) {
         data-toggle="dropdown"
         aria-expanded="true"
       >
-        {props.title} {props.data ? <i className="fa fa-angle-right" /> : null}
+        {props.title} {(props.data && props.data.length > 0) ? <i className="fa fa-angle-right" /> : null}
       </a>
       <div className="custom-menu">
         <div className="row">
