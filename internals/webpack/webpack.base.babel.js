@@ -144,6 +144,9 @@ module.exports = options => ({
     modules: ['node_modules', 'app'],
     extensions: ['.js', '.jsx', '.react.js', '.ts', '.tsx'],
     mainFields: ['browser', 'jsnext:main', 'main'],
+    alias: {
+      Images: path.resolve(process.cwd(), 'app/assets/img'),
+    },
   },
   devtool: options.devtool,
   target: 'web', // Make web variables accessible to webpack, e.g. window

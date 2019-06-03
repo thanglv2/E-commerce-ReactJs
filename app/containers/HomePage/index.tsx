@@ -12,6 +12,7 @@ import { useInjectReducer } from 'utils/injectReducer';
 import { useInjectSaga } from 'utils/injectSaga';
 import classNames from 'classnames';
 import { Button } from 'react-bootstrap';
+import Banner01 from 'Images/banner01.jpg';
 
 // import {
 //   makeSelectRepos,
@@ -107,6 +108,7 @@ export function HomePage() {
         </section>
         <Button variant="primary">Test bootstrap</Button>
       </div>
+      <img src={Banner01} width="500"/>
       <div className="row">
         {[0, 1, 2, 3, 4].map(item => (
           <div className="col-md-3" key={item}>
