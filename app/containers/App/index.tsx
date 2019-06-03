@@ -22,6 +22,15 @@ import GlobalStyle from '../../global-styles';
 import styles from './App.less';
 
 export default function App() {
+  useEffect(() => {
+    FB.CustomerChat.show(true);
+    FB.CustomerChat.update({
+      logged_in_greeting: 'Chào bạn, mình có thể giúp gì cho bạn không?',
+      logged_out_greeting: 'Đăng nhập để chat',
+      ref: 'fb-chat',
+    });
+  }, [])
+
   return (
     <div className={styles.appWrapper}>
       <Helmet

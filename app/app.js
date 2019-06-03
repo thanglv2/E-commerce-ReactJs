@@ -102,3 +102,12 @@ if (!window.Intl) {
 if (process.env.NODE_ENV === 'production') {
   require('offline-plugin/runtime').install(); // eslint-disable-line global-require
 }
+
+// Init Facebook Customer chat
+(function (d, s, id) {
+  const fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  const js = d.createElement(s); js.id = id;
+  js.src = 'https://connect.facebook.net/vi_VN/sdk/xfbml.customerchat.js';
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));
