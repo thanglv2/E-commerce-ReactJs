@@ -5,30 +5,29 @@
  */
 
 import React, { useEffect, memo, FormEvent } from 'react';
-import { Helmet } from 'react-helmet';
-import { FormattedMessage } from 'react-intl';
+// import { Helmet } from 'react-helmet';
+// import { FormattedMessage } from 'react-intl';
 import { useSelector, useDispatch } from 'react-redux';
 import { useInjectReducer } from 'utils/injectReducer';
 import { useInjectSaga } from 'utils/injectSaga';
-import classNames from 'classnames';
-import { Button } from 'react-bootstrap';
-import Banner01 from 'Images/banner01.jpg';
+// import classNames from 'classnames';
+// import { Button } from 'react-bootstrap';
 
 // import {
 //   makeSelectRepos,
 //   makeSelectLoading,
 //   makeSelectError,
 // } from 'containers/App/selectors';
-import H2 from 'components/H2';
-import ProductItem from 'components/ProductItem';
+// import H2 from 'components/H2';
 // import ReposList from 'components/ReposList';
-import styles from './HomePage.less';
-import messages from './messages';
+// import styles from './HomePage.less';
+// import messages from './messages';
 // import { loadRepos } from '../App/actions';
 import { changeItemName, loadItems } from './actions';
 import { makeSelectItemName, makeSelectItems, makeLoadingItems } from './selectors';
 import reducer from './reducer';
 import saga from './saga';
+import { VerticalMenu } from 'containers/VerticalMenu';
 
 const key = 'home';
 
@@ -40,8 +39,8 @@ export function HomePage() {
 
   // const loading : boolean = useSelector(makeSelectLoading());
   // const error : object = useSelector(makeSelectError());
-  const items: any[] = useSelector(makeSelectItems());
-  const loadingItems: boolean = useSelector(makeLoadingItems());
+  // const items: any[] = useSelector(makeSelectItems());
+  // const loadingItems: boolean = useSelector(makeLoadingItems());
 
   const dispatch = useDispatch();
 
@@ -65,58 +64,52 @@ export function HomePage() {
   // };
 
   return (
-    <div className="container">
-      <Helmet>
-        <title>Home Page</title>
-        <meta
-          name="description"
-          content="A React.js Boilerplate application homepage"
-        />
-      </Helmet>
-      <div>
-        <section className={classNames(styles.defaultSection, styles.center)}>
-          <H2>
-            <FormattedMessage {...messages.startProjectHeader} />
-          </H2>
-          <p>
-            <FormattedMessage {...messages.startProjectMessage} />
-          </p>
-        </section>
-        <section className={styles.defaultSection}>
-          <H2>
-            <FormattedMessage {...messages.trymeHeader} />
-          </H2>
-          <form onSubmit={onSubmitForm}>
-            <label htmlFor="itemName">
-              <FormattedMessage {...messages.trymeMessage} />
-              <span className={styles.centerSpan}>
-                <FormattedMessage {...messages.trymeAtPrefix} />
-              </span>
-              <input
-                id="itemName"
-                type="text"
-                placeholder="products"
-                value={itemName}
-                onChange={onChangeItemName}
-              />
-            </label>
-          </form>
-          {/* <ReposList {...reposListProps} /> */}
-        </section>
-        <section className={classNames(styles.defaultSection, styles.center)}>
-          {loadingItems && <span className={styles.centerSpan}>Loading...</span>}
-        </section>
-        <Button variant="primary">Test bootstrap</Button>
-      </div>
-      <img src={Banner01} width="500"/>
-      <div className="row">
-        {[0, 1, 2, 3, 4].map(item => (
-          <div className="col-md-3" key={item}>
-            <ProductItem />
-          </div>
-        )
-        )}
-      </div>
+    // <article>
+    //   <Helmet>
+    //     <title>Home Page</title>
+    //     <meta
+    //       name="description"
+    //       content="A React.js Boilerplate application homepage"
+    //     />
+    //   </Helmet>
+    //   <div>
+    //     <section className={classNames(styles.defaultSection, styles.center)}>
+    //       <H2>
+    //         <FormattedMessage {...messages.startProjectHeader} />
+    //       </H2>
+    //       <p>
+    //         <FormattedMessage {...messages.startProjectMessage} />
+    //       </p>
+    //     </section>
+    //     <section className={styles.defaultSection}>
+    //       <H2>
+    //         <FormattedMessage {...messages.trymeHeader} />
+    //       </H2>
+    //       <form onSubmit={onSubmitForm}>
+    //         <label htmlFor="itemName">
+    //           <FormattedMessage {...messages.trymeMessage} />
+    //           <span className={styles.centerSpan}>
+    //             <FormattedMessage {...messages.trymeAtPrefix} />
+    //           </span>
+    //           <input
+    //             id="itemName"
+    //             type="text"
+    //             placeholder="products"
+    //             value={itemName}
+    //             onChange={onChangeItemName}
+    //           />
+    //         </label>
+    //       </form>
+    //       {/* <ReposList {...reposListProps} /> */}
+    //     </section>
+    //     <section className={classNames(styles.defaultSection, styles.center)}>
+    //       {loadingItems && <span className={styles.centerSpan}>Loading...</span>}
+    //     </section>
+    //     <Button variant="primary">Test bootstrap</Button>
+    //   </div>
+    // </article>
+    <div>
+      <VerticalMenu />
     </div>
   );
 }
