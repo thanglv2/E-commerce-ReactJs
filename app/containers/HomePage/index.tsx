@@ -19,6 +19,7 @@ import { Button } from 'react-bootstrap';
 //   makeSelectError,
 // } from 'containers/App/selectors';
 import H2 from 'components/H2';
+import ProductItem from 'components/ProductItem';
 // import ReposList from 'components/ReposList';
 import styles from './HomePage.less';
 import messages from './messages';
@@ -32,19 +33,19 @@ const key = 'home';
 
 export function HomePage() {
   // const repos = useSelector(makeSelectRepos());
-  const itemName : string = useSelector(makeSelectItemName());
+  const itemName: string = useSelector(makeSelectItemName());
   const globalStyles = (window as any).globalStyles;
   console.log(globalStyles)
-  
+
   // const loading : boolean = useSelector(makeSelectLoading());
   // const error : object = useSelector(makeSelectError());
-  const items : any[] = useSelector(makeSelectItems());
-  const loadingItems : boolean = useSelector(makeLoadingItems());
+  const items: any[] = useSelector(makeSelectItems());
+  const loadingItems: boolean = useSelector(makeLoadingItems());
 
   const dispatch = useDispatch();
 
-  const onChangeItemName = ({target} : {target: HTMLInputElement}) => dispatch(changeItemName(target.value));
-  const onSubmitForm = (evt? : FormEvent) => {
+  const onChangeItemName = ({ target }: { target: HTMLInputElement }) => dispatch(changeItemName(target.value));
+  const onSubmitForm = (evt?: FormEvent) => {
     if (evt !== undefined && evt.preventDefault) evt.preventDefault();
     dispatch(loadItems());
   };
@@ -63,7 +64,7 @@ export function HomePage() {
   // };
 
   return (
-    <article>
+    <div className="container">
       <Helmet>
         <title>Home Page</title>
         <meta
@@ -106,7 +107,13 @@ export function HomePage() {
         </section>
         <Button variant="primary">Test bootstrap</Button>
       </div>
-    </article>
+      {[0, 1, 2, 3, 4].map(item => (
+        <div className="col-md-3">
+          <ProductItem />
+        </div>
+      )
+      )}
+    </div>
   );
 }
 
