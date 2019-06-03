@@ -1,0 +1,123 @@
+/*----------------------------*\
+	Single product
+\*----------------------------*/
+
+.product.product-single {
+  margin-top: 15px;
+  margin-bottom: 15px;
+  -webkit-transition: 0.3s all;
+  transition: 0.3s all;
+}
+
+.product.product-single:hover {
+  -webkit-box-shadow: 0px 6px 10px -6px rgba(0, 0, 0, 0.175);
+  box-shadow: 0px 6px 10px -6px rgba(0, 0, 0, 0.175);
+  -webkit-transform: translateY(-4px);
+  -ms-transform: translateY(-4px);
+  transform: translateY(-4px);
+}
+
+.product.product-single .product-thumb {
+  position: relative;
+  margin-bottom: 15px;
+}
+
+.product.product-single .product-thumb>img {
+  width: 100%;
+}
+
+.product.product-single .product-thumb:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #FFF;
+  opacity: 0;
+  visibility: hidden;
+  z-index: 0;
+  -webkit-transition: 0.3s all;
+  transition: 0.3s all;
+}
+
+.product.product-single:hover .product-thumb:after {
+  opacity: 0.7;
+  visibility: visible;
+}
+
+.product.product-single .quick-view {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  visibility: hidden;
+  z-index: 20;
+}
+
+.product.product-single:hover .quick-view {
+  opacity: 1;
+  visibility: visible;
+}
+
+.product.product-single .product-label {
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.product.product-single .product-label>span {
+  display: block;
+}
+
+.product.product-single .product-countdown {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  text-align: center;
+}
+
+.product.product-single .product-body {
+  padding: 15px;
+}
+
+.product.product-single .product-price {
+  display: inline-block;
+}
+
+.product.product-single .product-rating {
+  float: right;
+  margin-top: 5px;
+}
+
+.product.product-single .product-name {
+  font-size: 16px;
+}
+
+.product.product-single .product-btns {
+  margin-top: 20px;
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transition: 0.3s all;
+  transition: 0.3s all;
+}
+
+.product.product-single:hover .product-btns {
+  opacity: 1;
+  visibility: visible;
+}
+
+/*-- hot product --*/
+
+.product.product-single.product-hot {
+  border: 2px solid #F8694A;
+}
+
+.product.product-single.product-hot .product-btns {
+  opacity: 1;
+  visibility: visible;
+}
