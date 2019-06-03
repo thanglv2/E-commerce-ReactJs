@@ -14,7 +14,7 @@ const ProductItem = () => {
           <li><span>00 S</span></li>
         </ul>
         <button className="main-btn quick-view"><i className="fa fa-search-plus"></i> Quick view</button>
-        <img src="..//product01.jpg" alt="" />
+        <img src="@image/product01.jpg" alt="" />
       </div>
       <div className="product-body">
         <h3 className="product-price">$32.50 <del className="product-old-price">$45.00</del></h3>
