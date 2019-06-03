@@ -1,5 +1,6 @@
 import React from 'react';
 import { FormattedMessage } from 'react-intl';
+import { Dropdown } from 'react-bootstrap';
 
 import A from './A';
 import Img from './Img';
@@ -7,6 +8,7 @@ import NavBar from './NavBar';
 import HeaderLink from './HeaderLink';
 import Banner from './banner.jpg';
 import messages from './messages';
+
 
 function Header() {
   return (
@@ -35,13 +37,13 @@ function Header() {
             <li className="header-account dropdown default-dropdown">
               <div className="dropdown-toggle" role="button" data-toggle="dropdown" aria-expanded="true">
                 <div className="header-btns-icon">
-                  <i className="fa fa-user-o"></i>
+                  <i className="far fa-user"></i>
                 </div>
                 <strong className="text-uppercase">My Account <i className="fa fa-caret-down"></i></strong>
               </div>
               <a href="#" className="text-uppercase">Login</a> / <a href="#" className="text-uppercase">Join</a>
               <ul className="custom-menu">
-                <li><a href="#"><i className="fa fa-user-o"></i> My Account</a></li>
+                <li><a href="#"><i className="far fa-user"></i> My Account</a></li>
                 <li><a href="#"><i className="fa fa-heart-o"></i> My Wishlist</a></li>
                 <li><a href="#"><i className="fa fa-exchange"></i> Compare</a></li>
                 <li><a href="#"><i className="fa fa-check"></i> Checkout</a></li>
@@ -90,7 +92,6 @@ function Header() {
                 </div>
               </div>
             </li>
-
             <li className="nav-toggle">
               <button className="nav-toggle-btn main-btn icon-btn"><i className="fa fa-bars"></i></button>
             </li>

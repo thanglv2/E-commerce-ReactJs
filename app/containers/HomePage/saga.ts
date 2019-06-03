@@ -18,9 +18,9 @@ import { LOAD_ITEMS } from './constants';
 
 export function* getItems() {
   // Select username from store
-  const itemName : string = yield select(makeSelectItemName());
+  const itemName: string = yield select(makeSelectItemName());
   const requestURL = `${(<any>window).API_URL}${itemName}`; // https://github.com/typicode/json-server
-
+  console.log('rr', requestURL);
   try {
     // Call our request helper (see 'utils/request')
     const items = yield call(request, requestURL);

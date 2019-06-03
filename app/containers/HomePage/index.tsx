@@ -29,6 +29,7 @@ import { changeItemName, loadItems } from './actions';
 import { makeSelectItemName, makeSelectItems, makeLoadingItems } from './selectors';
 import reducer from './reducer';
 import saga from './saga';
+import BoxListProducts from 'components/BoxListProducts';
 
 const key = 'home';
 
@@ -73,51 +74,50 @@ export function HomePage() {
           content="A React.js Boilerplate application homepage"
         />
       </Helmet>
-      <div>
-        <section className={classNames(styles.defaultSection, styles.center)}>
-          <H2>
-            <FormattedMessage {...messages.startProjectHeader} />
-          </H2>
-          <p>
-            <FormattedMessage {...messages.startProjectMessage} />
-          </p>
-        </section>
-        <section className={styles.defaultSection}>
-          <H2>
-            <FormattedMessage {...messages.trymeHeader} />
-          </H2>
-          <form onSubmit={onSubmitForm}>
-            <label htmlFor="itemName">
-              <FormattedMessage {...messages.trymeMessage} />
-              <span className={styles.centerSpan}>
-                <FormattedMessage {...messages.trymeAtPrefix} />
-              </span>
-              <input
-                id="itemName"
-                type="text"
-                placeholder="products"
-                value={itemName}
-                onChange={onChangeItemName}
-              />
-            </label>
-          </form>
-          {/* <ReposList {...reposListProps} /> */}
-        </section>
-        <section className={classNames(styles.defaultSection, styles.center)}>
-          {loadingItems && <span className={styles.centerSpan}>Loading...</span>}
-        </section>
-        <Button variant="primary">Test bootstrap</Button>
-      </div>
-      <img src={Banner01} width="500"/>
-      <div className="row">
-        {[0, 1, 2, 3, 4].map(item => (
-          <div className="col-md-3" key={item}>
-            <ProductItem />
-          </div>
-        )
-        )}
-      </div>
-    </div>
+      <section className={classNames(styles.defaultSection, styles.center)}>
+        <H2>
+          <FormattedMessage {...messages.startProjectHeader} />
+        </H2>
+        <p>
+          <FormattedMessage {...messages.startProjectMessage} />
+        </p>
+      </section>
+      <section className={styles.defaultSection}>
+        <H2>
+          <FormattedMessage {...messages.trymeHeader} />
+        </H2>
+        <form onSubmit={onSubmitForm}>
+          <label htmlFor="itemName">
+            <FormattedMessage {...messages.trymeMessage} />
+            <span className={styles.centerSpan}>
+              <FormattedMessage {...messages.trymeAtPrefix} />
+            </span>
+            <input
+              id="itemName"
+              type="text"
+              placeholder="products"
+              value={itemName}
+              onChange={onChangeItemName}
+            />
+          </label>
+        </form>
+      </section>
+      {/* <section className={classNames(styles.defaultSection, styles.center)}>
+        {loadingItems && <span className={styles.centerSpan}>Loading...</span>}
+      </section> */}
+      <section className="deal-of-the-day">
+        <BoxListProducts title="Deals Of The Day" hasBanner />
+      </section>
+      <section className="most-popular">
+        <BoxListProducts title="Most Popular" />
+      </section>
+      <section className="lastest-products m-t-md">
+        <BoxListProducts title="Latest products" />
+      </section>
+      <section className="lastest-products">
+        <BoxListProducts title="Latest Products" />
+      </section>
+    </div >
   );
 }
 
