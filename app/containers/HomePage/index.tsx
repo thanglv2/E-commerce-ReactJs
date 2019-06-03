@@ -11,6 +11,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useInjectReducer } from 'utils/injectReducer';
 import { useInjectSaga } from 'utils/injectSaga';
 import classNames from 'classnames';
+import { Button } from 'react-bootstrap';
 
 // import {
 //   makeSelectRepos,
@@ -32,6 +33,9 @@ const key = 'home';
 export function HomePage() {
   // const repos = useSelector(makeSelectRepos());
   const itemName : string = useSelector(makeSelectItemName());
+  const globalStyles = (window as any).globalStyles;
+  console.log(globalStyles)
+  
   // const loading : boolean = useSelector(makeSelectLoading());
   // const error : object = useSelector(makeSelectError());
   const items : any[] = useSelector(makeSelectItems());
@@ -100,6 +104,7 @@ export function HomePage() {
         <section className={classNames(styles.defaultSection, styles.center)}>
           {loadingItems && <span className={styles.centerSpan}>Loading...</span>}
         </section>
+        <Button variant="primary">Test bootstrap</Button>
       </div>
     </article>
   );

@@ -14,12 +14,12 @@ import { LOAD_ITEMS } from './constants';
  * Github repos request/response handler
  */
 
-// json-server --watch db.json --routes ./routes.json --port 4000 --delay 3000
+// json-server --watch --host 192.168.1.215 db.json --routes ./routes.json --port 4000 --delay 3000
 
 export function* getItems() {
   // Select username from store
   const itemName : string = yield select(makeSelectItemName());
-  const requestURL = `http://localhost:4000/${itemName}`; // https://github.com/typicode/json-server
+  const requestURL = `${(<any>window).API_URL}${itemName}`; // https://github.com/typicode/json-server
 
   try {
     // Call our request helper (see 'utils/request')
