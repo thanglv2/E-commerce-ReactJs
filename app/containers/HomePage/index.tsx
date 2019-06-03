@@ -107,12 +107,14 @@ export function HomePage() {
         </section>
         <Button variant="primary">Test bootstrap</Button>
       </div>
-      {[0, 1, 2, 3, 4].map(item => (
-        <div className="col-md-3">
-          <ProductItem />
-        </div>
-      )
-      )}
+      <div className="row">
+        {[0, 1, 2, 3, 4].map(item => (
+          <div className="col-md-3" key={item}>
+            <ProductItem />
+          </div>
+        )
+        )}
+      </div>
     </div>
   );
 }
