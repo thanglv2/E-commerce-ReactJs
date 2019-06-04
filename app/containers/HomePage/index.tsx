@@ -26,21 +26,7 @@ export function HomePage() {
 
   return (
     <div>
-      {/* Vertical Menu */}
-      {/* <!-- NAVIGATION --> */}
-      <div id="navigation">
-        {/* <!-- container --> */}
-        <div className="container">
-          <div id="responsive-nav">
-            <VerticalMenu />
-            <HorizontalMenu />
 
-          </div>
-        </div>
-        {/* <!-- /container --> */}
-      </div>
-      {/* <!-- /NAVIGATION --> */}
-      <Section />
     </div>
 
   );
