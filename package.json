@@ -84,6 +84,7 @@
     "react": "16.8.6",
     "react-bootstrap": "^1.0.0-beta.9",
     "react-dom": "16.8.6",
+    "react-facebook-login": "^4.1.1",
     "react-helmet": "6.0.0-beta",
     "react-intl": "2.8.0",
     "react-redux": "7.1.0-alpha.4",
@@ -93,8 +94,8 @@
     "redux-saga": "1.0.2",
     "reselect": "4.0.0",
     "sanitize.css": "8.0.0",
+    "slick-carousel": "^1.8.1",
     "styled-components": "4.2.0",
-    "uuid": "^3.3.2",
     "uuidv4": "^4.0.0"
   },
   "devDependencies": {
@@ -161,7 +162,6 @@
     "react-testing-library": "6.1.2",
     "rimraf": "2.6.3",
     "shelljs": "0.8.3",
-    "slick-carousel": "^1.8.1",
     "source-map-loader": "^0.2.4",
     "style-loader": "0.23.1",
     "stylelint": "10.0.1",

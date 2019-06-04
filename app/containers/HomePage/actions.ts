@@ -19,10 +19,13 @@ import {
   CHANGE_ITEM_NAME,
   ITEMS_LOADED,
   ITEMS_LOADING_ERROR,
-  LOAD_ITEMS
+  LOAD_ITEMS,
+  HOME_BANNERS_LOADED,
+  HOME_BANNERS_LOADING_ERROR,
+  LOAD_HOME_BANNERS
 } from './constants';
 
-import {Action} from 'utils/interfaces';
+import { Action } from 'utils/interfaces';
 /**
  * Changes the input field of the form
  *
@@ -56,3 +59,24 @@ export function loadItems() {
     type: LOAD_ITEMS
   };
 }
+
+export function loadHomeBanners() {
+  return {
+    type: LOAD_HOME_BANNERS
+  };
+}
+
+export function homeBannersLoaded(items: any[]): Action {
+  return {
+    type: HOME_BANNERS_LOADED,
+    items,
+  };
+}
+
+export function homeBannersLoadingError(error: object): Action {
+  return {
+    type: HOME_BANNERS_LOADING_ERROR,
+    error,
+  };
+}
+

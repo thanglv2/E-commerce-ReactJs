@@ -12,6 +12,8 @@ import {
   CHANGE_ITEM_NAME,
   ITEMS_LOADED,
   ITEMS_LOADING_ERROR,
+  HOME_BANNERS_LOADED,
+  HOME_BANNERS_LOADING_ERROR,
 } from './constants';
 import { Action } from 'utils/interfaces';
 
@@ -20,12 +22,14 @@ export type State = {
   readonly itemName: string;
   readonly items: ReadonlyArray<any>;
   readonly error: object;
+  readonly homeBanners: ReadonlyArray<any>;
 };
 
 export const initialState: State = {
   itemName: '',
   items: [],
   error: null,
+  homeBanners: [],
 };
 
 /* eslint-disable default-case, no-param-reassign */
@@ -40,6 +44,12 @@ const homeReducer = (state = initialState, action: Action) =>
         draft.items = action.items;
         break;
       case ITEMS_LOADING_ERROR:
+        draft.error = action.error;
+        break;
+      case HOME_BANNERS_LOADED:
+        draft.homeBanners = action.items;
+        break;
+      case HOME_BANNERS_LOADING_ERROR:
         draft.error = action.error;
         break;
     }
