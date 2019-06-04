@@ -9,7 +9,7 @@ import messages from './messages';
 function Footer() {
   return (
     <footer>
-      <section>
+      {/* <section>
         <FormattedMessage {...messages.licenseMessage} />
       </section>
       <section>
@@ -22,7 +22,7 @@ function Footer() {
             author: <A href="https://twitter.com/mxstbr">Max Stoiber</A>,
           }}
         />
-      </section>
+      </section> */}
     </footer>
   );
 }

@@ -29,79 +29,23 @@ import { changeItemName, loadItems } from './actions';
 import { makeSelectItemName, makeSelectItems, makeLoadingItems } from './selectors';
 import reducer from './reducer';
 import saga from './saga';
+import { VerticalMenu } from 'containers/VerticalMenu';
+import { HorizontalMenu } from 'containers/HorizontalMenu';
+import { Section } from 'containers/Section';
 import BoxListProducts from 'components/BoxListProducts';
 
 const key = 'home';
 
 export function HomePage() {
-  // const repos = useSelector(makeSelectRepos());
-  const itemName: string = useSelector(makeSelectItemName());
-  const globalStyles = (window as any).globalStyles;
-  console.log(globalStyles)
 
-  // const loading : boolean = useSelector(makeSelectLoading());
-  // const error : object = useSelector(makeSelectError());
-  const items: any[] = useSelector(makeSelectItems());
-  const loadingItems: boolean = useSelector(makeLoadingItems());
-
-  const dispatch = useDispatch();
-
-  const onChangeItemName = ({ target }: { target: HTMLInputElement }) => dispatch(changeItemName(target.value));
-  const onSubmitForm = (evt?: FormEvent) => {
-    if (evt !== undefined && evt.preventDefault) evt.preventDefault();
-    dispatch(loadItems());
-  };
   useInjectReducer({ key, reducer });
   useInjectSaga({ key, saga, mode: null });
 
   useEffect(() => {
-    // When initial state username is not null, submit the form to load repos
-    if (itemName && itemName.trim().length > 0) onSubmitForm();
   }, []);
-
-  // const reposListProps = {
-  //   loading,
-  //   error,
-  //   repos,
-  // };
 
   return (
     <div className="container">
-      <Helmet>
-        <title>Home Page</title>
-        <meta
-          name="description"
-          content="A React.js Boilerplate application homepage"
-        />
-      </Helmet>
-      <section className={classNames(styles.defaultSection, styles.center)}>
-        <H2>
-          <FormattedMessage {...messages.startProjectHeader} />
-        </H2>
-        <p>
-          <FormattedMessage {...messages.startProjectMessage} />
-        </p>
-      </section>
-      <section className={styles.defaultSection}>
-        <H2>
-          <FormattedMessage {...messages.trymeHeader} />
-        </H2>
-        <form onSubmit={onSubmitForm}>
-          <label htmlFor="itemName">
-            <FormattedMessage {...messages.trymeMessage} />
-            <span className={styles.centerSpan}>
-              <FormattedMessage {...messages.trymeAtPrefix} />
-            </span>
-            <input
-              id="itemName"
-              type="text"
-              placeholder="products"
-              value={itemName}
-              onChange={onChangeItemName}
-            />
-          </label>
-        </form>
-      </section>
       {/* <section className={classNames(styles.defaultSection, styles.center)}>
         {loadingItems && <span className={styles.centerSpan}>Loading...</span>}
       </section> */}
