@@ -95,7 +95,8 @@
     "reselect": "4.0.0",
     "sanitize.css": "8.0.0",
     "slick-carousel": "^1.8.1",
-    "styled-components": "4.2.0"
+    "styled-components": "4.2.0",
+    "uuidv4": "^4.0.0"
   },
   "devDependencies": {
     "@babel/cli": "7.4.3",
