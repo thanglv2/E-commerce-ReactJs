@@ -12,6 +12,7 @@ import reducer from './reducer';
 import saga from './saga';
 import { VerticalMenu } from 'containers/VerticalMenu';
 import { HorizontalMenu } from 'containers/HorizontalMenu';
+import { Section } from 'containers/Section';
 
 const key = 'home';
 
@@ -33,11 +34,13 @@ export function HomePage() {
           <div id="responsive-nav">
             <VerticalMenu />
             <HorizontalMenu />
+
           </div>
         </div>
         {/* <!-- /container --> */}
       </div>
       {/* <!-- /NAVIGATION --> */}
+      <Section />
     </div>
 
   );
