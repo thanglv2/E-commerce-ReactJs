@@ -74,7 +74,7 @@ export function HorizontalMenuItem(props: Props) {
               return < div className="col-md-3" key={uuid()} >
                 <div className="hidden-sm hidden-xs">
                   <a className="banner banner-1" href="#">
-                    <img src="../../assets/img/banner06.jpg" alt=""></img>
+                    <img src="https://colorlib.com/etc/e-shop/img/banner06.jpg" alt=""></img>
                     <div className="banner-caption text-center">
                       <h3 className="white-color text-uppercase">{item.title}</h3>
                     </div>

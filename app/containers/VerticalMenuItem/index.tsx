@@ -101,7 +101,7 @@ export function VerticalMenuItem(props: Props) {
           <div className="col-md-12">
             <hr />
             <a className="banner banner-1" href="#">
-              <img src="./img/banner05.jpg" alt="" />
+              <img src="https://colorlib.com/etc/e-shop/img/banner05.jpg" alt="" />
               <div className="banner-caption text-center">
                 <h2 className="white-color">NEW COLLECTION</h2>
                 <h3 className="white-color font-weak">HOT DEAL</h3>

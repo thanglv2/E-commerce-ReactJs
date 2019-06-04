@@ -43,6 +43,16 @@ const data1 = [
       'Bags & Shoes',
     ],
   },
+  {
+    title: 'Category 4',
+    value: [
+      'Women’s Clothing',
+      'Men’s Clothing',
+      'Phones & Accessories',
+      'Jewelry & Watches',
+      'Bags & Shoes',
+    ],
+  },
 ]
 
 const data3 = data1
