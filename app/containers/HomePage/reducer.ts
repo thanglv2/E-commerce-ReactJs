@@ -14,8 +14,10 @@ import {
   ITEMS_LOADING_ERROR,
   GET_PRODUCTS,
   GET_PRODUCTS_SUCCESS,
-  GET_PRODUCTS_ERROR
+  GET_PRODUCTS_ERROR,
 
+  HOME_BANNERS_LOADED,
+  HOME_BANNERS_LOADING_ERROR,
 } from './constants';
 import { Action } from 'utils/interfaces';
 import { string, array, object } from 'prop-types';
@@ -26,6 +28,7 @@ export type State = {
   readonly items: ReadonlyArray<any>;
   readonly error: object;
   readonly product: object;
+  readonly homeBanners: ReadonlyArray<any>;
 };
 
 export const initialState: State = {
@@ -36,7 +39,8 @@ export const initialState: State = {
     status: null,
     list: [],
     errors: null,
-  }
+  },
+  homeBanners: [],
 };
 
 /* eslint-disable default-case, no-param-reassign */
@@ -69,6 +73,11 @@ const homeReducer = (state = initialState, action: Action) =>
           error: action.error,
           list: []
         }
+      case HOME_BANNERS_LOADED:
+        draft.homeBanners = action.items;
+        break;
+      case HOME_BANNERS_LOADING_ERROR:
+        draft.error = action.error;
         break;
     }
   });

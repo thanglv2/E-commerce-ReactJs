@@ -24,6 +24,9 @@ import {
   GET_PRODUCTS_SUCCESS,
   GET_PRODUCTS_ERROR,
 
+  HOME_BANNERS_LOADED,
+  HOME_BANNERS_LOADING_ERROR,
+  LOAD_HOME_BANNERS
 } from './constants';
 
 import { Action } from 'utils/interfaces';
@@ -77,4 +80,22 @@ export function getProductsError(error: object): Action {
     error
   }
 }
+export function loadHomeBanners() {
+  return {
+    type: LOAD_HOME_BANNERS
+  };
+}
 
+export function homeBannersLoaded(items: any[]): Action {
+  return {
+    type: HOME_BANNERS_LOADED,
+    items,
+  };
+}
+
+export function homeBannersLoadingError(error: object): Action {
+  return {
+    type: HOME_BANNERS_LOADING_ERROR,
+    error,
+  };
+}

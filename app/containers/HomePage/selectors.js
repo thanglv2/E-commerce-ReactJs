@@ -5,7 +5,7 @@
 import { createSelector } from 'reselect';
 import { selectLoading, stateOfAction } from 'utils/loadingUtil';
 import { initialState } from './reducer';
-import { LOAD_ITEMS } from './constants';
+import { LOAD_ITEMS, LOAD_HOME_BANNERS } from './constants';
 
 const selectHome = state => state.home || initialState;
 
@@ -28,6 +28,22 @@ const makeSelectProducts = () => createSelector(
   homeState => homeState.product
 )
 
+const makeLoadingHomeBanners = () => createSelector(
+  selectLoading,
+  loadingState => loadingState[stateOfAction(LOAD_HOME_BANNERS)],
+);
+
+const makeSelectHomeBanners = () => createSelector(
+  selectHome,
+  homeState => homeState.homeBanners,
+);
+
 export {
-  selectHome, makeSelectItemName, makeSelectItems, makeLoadingItems, makeSelectProducts,
+  selectHome,
+  makeSelectItemName,
+  makeSelectItems,
+  makeLoadingItems,
+  makeSelectHomeBanners,
+  makeLoadingHomeBanners,
+  makeSelectProducts,
 };

@@ -10,11 +10,11 @@ import React from 'react';
 import { Helmet } from 'react-helmet';
 import { Switch, Route } from 'react-router-dom';
 
-import HomePage from 'containers/HomePage/Loadable';
-import ProductList from 'containers/ProductList/Loadable';
-import ProductDetail from 'containers/ProductDetail/Loadable';
-import ShoppingCart from 'containers/ShoppingCart/Loadable';
-import NotFoundPage from 'containers/NotFoundPage/Loadable';
+import HomePage from 'containers/HomePage';
+import ProductList from 'containers/ProductList';
+import ProductDetail from 'containers/ProductDetail';
+import ShoppingCart from 'containers/ShoppingCart';
+import NotFoundPage from 'containers/NotFoundPage';
 import Header from 'components/Header';
 import Footer from 'components/Footer';
 
