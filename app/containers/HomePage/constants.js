@@ -13,3 +13,7 @@ export const CHANGE_ITEM_NAME = 'boilerplate/Home/CHANGE_ITEM_NAME';
 export const LOAD_ITEMS = 'boilerplate/Home/LOAD_ITEMS_REQUEST';
 export const ITEMS_LOADED = 'boilerplate/Home/LOAD_ITEMS_SUCCESS';
 export const ITEMS_LOADING_ERROR = 'boilerplate/Home/LOAD_ITEMS_ERROR';
+
+export const GET_PRODUCTS = 'boilerplate/Home/GET_PRODUCTS';
+export const GET_PRODUCTS_SUCCESS = 'boilerplate/Home/GET_PRODUCTS_SUCCESS';
+export const GET_PRODUCTS_ERROR = 'boilerplate/Home/GET_PRODUCTS_ERROR';

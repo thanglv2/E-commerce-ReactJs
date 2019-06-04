@@ -19,10 +19,14 @@ import {
   CHANGE_ITEM_NAME,
   ITEMS_LOADED,
   ITEMS_LOADING_ERROR,
-  LOAD_ITEMS
+  LOAD_ITEMS,
+  GET_PRODUCTS,
+  GET_PRODUCTS_SUCCESS,
+  GET_PRODUCTS_ERROR,
+
 } from './constants';
 
-import {Action} from 'utils/interfaces';
+import { Action } from 'utils/interfaces';
 /**
  * Changes the input field of the form
  *
@@ -56,3 +60,21 @@ export function loadItems() {
     type: LOAD_ITEMS
   };
 }
+export function getProducts(): Action {
+  return {
+    type: GET_PRODUCTS,
+  }
+}
+export function getProductsSuccess(products: []): Action {
+  return {
+    type: GET_PRODUCTS_SUCCESS,
+    products
+  }
+}
+export function getProductsError(error: object): Action {
+  return {
+    type: GET_PRODUCTS_ERROR,
+    error
+  }
+}
+

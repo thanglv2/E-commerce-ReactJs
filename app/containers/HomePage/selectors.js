@@ -9,22 +9,25 @@ import { LOAD_ITEMS } from './constants';
 
 const selectHome = state => state.home || initialState;
 
-const makeSelectItemName = () =>
-  createSelector(
-    selectHome,
-    homeState => homeState.itemName,
-  );
+const makeSelectItemName = () => createSelector(
+  selectHome,
+  homeState => homeState.itemName,
+);
 
-const makeSelectItems = () =>
-  createSelector(
-    selectHome,
-    homeState => homeState.items,
-  );
+const makeSelectItems = () => createSelector(
+  selectHome,
+  homeState => homeState.items,
+);
 
-const makeLoadingItems = () =>
-  createSelector(
-    selectLoading,
-    loadingState => loadingState[stateOfAction(LOAD_ITEMS)],
-  );
+const makeLoadingItems = () => createSelector(
+  selectLoading,
+  loadingState => loadingState[stateOfAction(LOAD_ITEMS)],
+);
+const makeSelectProducts = () => createSelector(
+  selectHome,
+  homeState => homeState.product
+)
 
-export { selectHome, makeSelectItemName, makeSelectItems, makeLoadingItems };
+export {
+  selectHome, makeSelectItemName, makeSelectItems, makeLoadingItems, makeSelectProducts,
+};
