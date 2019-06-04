@@ -4,7 +4,7 @@
  *
  */
 
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { useInjectSaga } from 'utils/injectSaga';
 import { useInjectReducer } from 'utils/injectReducer';
 import reducer from './reducer';
@@ -20,14 +20,42 @@ export function VerticalMenuItem(props: Props) {
   useInjectSaga({ key: 'verticalMenuItem', saga, mode: null });
   const [open, setOpen] = useState(false);
   const menuItemDom = useRef(null);
+
+  const handleClickOutside = (e) => {
+    if (menuItemDom && menuItemDom.current) {
+      if (menuItemDom.current.contains(e.target)) {
+        // console.log(open, menuItemDom.current.classList.contains('open'))
+      } else {
+        const menuItems = menuItemDom.current.parentNode.querySelectorAll('.open');
+        for (let i = 0; i < menuItems.length; i++) {
+          const menuItem = menuItems[i];
+          // if (menuItem && menuItem !== menuItemDom.current) {
+          menuItem.classList.remove('open');
+          // }
+        }
+        return
+      }
+    }
+  }
+
+  useEffect(() => {
+    document.addEventListener('mousedown', handleClickOutside);
+  })
+
   const toggleMenuItem = () => {
     if (!props.data || !props.data.length) return
+
     const menuItems = menuItemDom.current.parentNode.querySelectorAll('.open');
     for (let i = 0; i < menuItems.length; i++) {
       const menuItem = menuItems[i];
       if (menuItem && menuItem !== menuItemDom.current) {
         menuItem.classList.remove('open');
       }
+    }
+
+    if (open && !menuItemDom.current.classList.contains('open')) {
+      menuItemDom.current.classList.add('open')
+      return
     }
     setOpen(!open);
   };
