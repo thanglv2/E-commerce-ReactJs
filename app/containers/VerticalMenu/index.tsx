@@ -56,45 +56,34 @@ export function VerticalMenu(props: Props) {
   useInjectSaga({ key: 'verticalMenu', saga, mode: null });
 
   return (
-    <div>
-      {/* Vertical Menu */}
-      {/* <!-- NAVIGATION --> */}
-      <div id="navigation">
-        {/* <!-- container --> */}
-        <div className="container">
-          <div id="responsive-nav">
-            {/* <!-- category nav --> */}
-            <div className="category-nav">
-              <span className="category-header">
-                Categories <i className="fa fa-list" />
-              </span>
-              <ul className="category-list">
-                <VerticalMenuItem
-                  data={dataContent1}
-                  title="Women’s Clothing 1"
-                />
-                <VerticalMenuItem title="Women’s Clothing 2" data={[]} />
-                <VerticalMenuItem
-                  data={dataContent3}
-                  title="Women’s Clothing 3"
-                />
-                <VerticalMenuItem title="Women’s Clothing 4" data={[]} />
-                <VerticalMenuItem title="Women’s Clothing 5" data={[]} />
-                <VerticalMenuItem
-                  data={dataContent6}
-                  title="Women’s Clothing 6"
-                />
-                <VerticalMenuItem title="Women’s Clothing 7" data={[]} />
-                <VerticalMenuItem title="Women’s Clothing 8" data={[]} />
-              </ul>
-            </div>
-            {/* <!-- menu nav --> */}
-          </div>
-        </div>
-        {/* <!-- /container --> */}
-      </div>
-      {/* <!-- /NAVIGATION --> */}
+
+
+    /* <!-- category nav --> */
+    <div className="category-nav">
+      <span className="category-header">
+        Categories <i className="fa fa-list" />
+      </span>
+      <ul className="category-list">
+        <VerticalMenuItem
+          data={dataContent1}
+          title="Women’s Clothing 1"
+        />
+        <VerticalMenuItem title="Women’s Clothing 2" data={[]} />
+        <VerticalMenuItem
+          data={dataContent3}
+          title="Women’s Clothing 3"
+        />
+        <VerticalMenuItem title="Women’s Clothing 4" data={[]} />
+        <VerticalMenuItem title="Women’s Clothing 5" data={[]} />
+        <VerticalMenuItem
+          data={dataContent6}
+          title="Women’s Clothing 6"
+        />
+        <VerticalMenuItem title="Women’s Clothing 7" data={[]} />
+        <VerticalMenuItem title="Women’s Clothing 8" data={[]} />
+      </ul>
     </div>
+    /* <!-- menu nav --> */
   );
 }
 
