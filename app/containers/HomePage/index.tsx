@@ -52,7 +52,7 @@ export function HomePage() {
   }
 
   return (
-    <div className="container">
+    <div>
       <Helmet>
         <title>Home Page</title>
         <meta
@@ -61,28 +61,40 @@ export function HomePage() {
         />
       </Helmet>
 
-      {homeBanners.length > 0 ?
-        <SilderWrapper children={homeBannerItems(homeBanners)} />
-        :
-        <div className="banner banner-1 home-banner">
-          <div className='banner-caption text-center'>
-            <LoadingIndicator />
+      <div id="home">
+        <div className="container">
+          <div className="home-wrap">
+            <div id="home-slick">
+              {homeBanners.length > 0 ?
+                <SilderWrapper children={homeBannerItems(homeBanners)} />
+                :
+                <div className="banner banner-1 home-banner">
+                  <div className='banner-caption text-center'>
+                    <LoadingIndicator />
+                  </div>
+                </div>
+              }
+            </div>
           </div>
         </div>
-      }
+      </div>
 
-      <section className="deal-of-the-day">
-        <BoxListProducts title="Deals Of The Day" hasBanner />
-      </section>
-      <section className="most-popular">
-        <BoxListProducts title="Most Popular" />
-      </section>
-      <section className="lastest-products m-t-md">
-        <BoxListProducts title="Latest products" />
-      </section>
-      <section className="lastest-products">
-        <BoxListProducts title="Latest Products" />
-      </section>
+      <Section />
+
+      <div className="container">
+        <section className="deal-of-the-day">
+          <BoxListProducts title="Deals Of The Day" hasBanner />
+        </section>
+        <section className="most-popular">
+          <BoxListProducts title="Most Popular" />
+        </section>
+        <section className="lastest-products m-t-md">
+          <BoxListProducts title="Latest products" />
+        </section>
+        <section className="lastest-products">
+          <BoxListProducts title="Latest Products" />
+        </section>
+      </div>
     </div >
   );
 }

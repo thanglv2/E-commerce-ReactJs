@@ -116,7 +116,7 @@ function Header() {
         {/* <!-- /container --> */}
       </div>
       {/* <!-- /NAVIGATION --> */}
-      <Section />
+      {/* <Section /> */}
     </div>
   );
 }
