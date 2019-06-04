@@ -37,7 +37,7 @@ export function HomePage() {
 
   const homeBannerItems = bannes => {
     return bannes.map(banner =>
-      <div className="banner banner-1 home-banner" key={banner.id}>
+      <div className="banner banner-1" key={banner.id}>
         <img src={banner.url} />
         <div className={classNames(`banner-caption ${banner.isCenter && 'text-center'}`)}>
           <h1 className={banner.title.color}>{banner.title.name}<br />
@@ -68,7 +68,7 @@ export function HomePage() {
               {homeBanners.length > 0 ?
                 <SilderWrapper children={homeBannerItems(homeBanners)} />
                 :
-                <div className="banner banner-1 home-banner">
+                <div className="banner banner-1">
                   <div className='banner-caption text-center'>
                     <LoadingIndicator />
                   </div>

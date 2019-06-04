@@ -1297,11 +1297,6 @@ textarea.input {
   margin-bottom: 15px;
 }
 
-.home-banner {
-  min-height: 489px;
-  background-color: #F2F2F2;
-}
-
 .banner>img {
   width: 100%;
 }
@@ -2252,7 +2247,11 @@ textarea.input {
 
 @media only screen and (max-width: 767px) {
   .banner h1 {
-    font-size: 36px;
+    font-size: 24px;
+  }
+
+  .banner h2 {
+    font-size: 24px;
   }
 
   .store-filter .pull-right,
