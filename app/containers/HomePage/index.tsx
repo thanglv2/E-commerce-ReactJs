@@ -17,6 +17,10 @@ import { loadHomeBanners } from './actions';
 import { makeSelectHomeBanners } from './selectors';
 import reducer from './reducer';
 import saga from './saga';
+import { VerticalMenu } from 'containers/VerticalMenu';
+import { HorizontalMenu } from 'containers/HorizontalMenu';
+import { Section } from 'containers/Section';
+import BoxListProducts from 'components/BoxListProducts';
 
 const key = 'home';
 
@@ -66,6 +70,19 @@ export function HomePage() {
           </div>
         </div>
       }
+
+      <section className="deal-of-the-day">
+        <BoxListProducts title="Deals Of The Day" hasBanner />
+      </section>
+      <section className="most-popular">
+        <BoxListProducts title="Most Popular" />
+      </section>
+      <section className="lastest-products m-t-md">
+        <BoxListProducts title="Latest products" />
+      </section>
+      <section className="lastest-products">
+        <BoxListProducts title="Latest Products" />
+      </section>
     </div >
   );
 }
