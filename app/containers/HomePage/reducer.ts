@@ -12,16 +12,22 @@ import {
   CHANGE_ITEM_NAME,
   ITEMS_LOADED,
   ITEMS_LOADING_ERROR,
+  GET_PRODUCTS,
+  GET_PRODUCTS_SUCCESS,
+  GET_PRODUCTS_ERROR,
+
   HOME_BANNERS_LOADED,
   HOME_BANNERS_LOADING_ERROR,
 } from './constants';
 import { Action } from 'utils/interfaces';
+import { string, array, object } from 'prop-types';
 
 // The initial state of the App
 export type State = {
   readonly itemName: string;
   readonly items: ReadonlyArray<any>;
   readonly error: object;
+  readonly product: object;
   readonly homeBanners: ReadonlyArray<any>;
 };
 
@@ -29,6 +35,11 @@ export const initialState: State = {
   itemName: '',
   items: [],
   error: null,
+  product: {
+    status: null,
+    list: [],
+    errors: null,
+  },
   homeBanners: [],
 };
 
@@ -46,6 +57,22 @@ const homeReducer = (state = initialState, action: Action) =>
       case ITEMS_LOADING_ERROR:
         draft.error = action.error;
         break;
+      case GET_PRODUCTS:
+        draft.product = { ...draft.product, status: 'loading' };
+        break;
+      case GET_PRODUCTS_SUCCESS:
+        draft.product = {
+          status: 'success',
+          list: action.products,
+          error: null
+        };
+        break;
+      case GET_PRODUCTS_ERROR:
+        draft.product = {
+          status: 'error',
+          error: action.error,
+          list: []
+        }
       case HOME_BANNERS_LOADED:
         draft.homeBanners = action.items;
         break;

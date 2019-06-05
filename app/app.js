@@ -21,8 +21,7 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
 import './assets/css/style.css';
-import 'slick-carousel/slick/slick.css';
-import 'slick-carousel/slick/slick-theme.css';
+
 
 // Import root app
 import App from 'containers/App';
@@ -31,8 +30,8 @@ import App from 'containers/App';
 import LanguageProvider from 'containers/LanguageProvider';
 
 // Load the favicon and the .htaccess file
-import '!file-loader?name=[name].[ext]!./images/favicon.ico';
-import 'file-loader?name=.htaccess!./.htaccess'; // eslint-disable-line import/extensions
+// import '!file-loader?name=[name].[ext]!./images/favicon.ico';
+// import 'file-loader?name=.htaccess!./.htaccess'; // eslint-disable-line import/extensions
 
 import configureStore from './configureStore';
 
@@ -43,10 +42,9 @@ import { translationMessages } from './i18n';
 // the index.html file and this observer)
 const openSansObserver = new FontFaceObserver('Open Sans', {});
 
-window.API_URL =
-  process.env.NODE_ENV !== 'production'
-    ? 'http://192.168.1.215:4000/'
-    : 'https://product_url/';
+window.API_URL = process.env.NODE_ENV !== 'production'
+  ? 'http://192.168.1.215:4000/'
+  : 'https://product_url/';
 // When Open Sans is loaded, add a font-family using Open Sans to the body
 openSansObserver.load().then(() => {
   document.body.classList.add('fontLoaded');
@@ -85,12 +83,10 @@ if (!window.Intl) {
   new Promise(resolve => {
     resolve(import('intl'));
   })
-    .then(() =>
-      Promise.all([
-        import('intl/locale-data/jsonp/en.js'),
-        import('intl/locale-data/jsonp/de.js'),
-      ]),
-    ) // eslint-disable-line prettier/prettier
+    .then(() => Promise.all([
+      import('intl/locale-data/jsonp/en.js'),
+      import('intl/locale-data/jsonp/de.js'),
+    ])) // eslint-disable-line prettier/prettier
     .then(() => render(translationMessages))
     .catch(err => {
       throw err;

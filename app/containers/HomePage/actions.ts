@@ -20,6 +20,10 @@ import {
   ITEMS_LOADED,
   ITEMS_LOADING_ERROR,
   LOAD_ITEMS,
+  GET_PRODUCTS,
+  GET_PRODUCTS_SUCCESS,
+  GET_PRODUCTS_ERROR,
+
   HOME_BANNERS_LOADED,
   HOME_BANNERS_LOADING_ERROR,
   LOAD_HOME_BANNERS
@@ -59,7 +63,23 @@ export function loadItems() {
     type: LOAD_ITEMS
   };
 }
-
+export function getProducts(): Action {
+  return {
+    type: GET_PRODUCTS,
+  }
+}
+export function getProductsSuccess(products: []): Action {
+  return {
+    type: GET_PRODUCTS_SUCCESS,
+    products
+  }
+}
+export function getProductsError(error: object): Action {
+  return {
+    type: GET_PRODUCTS_ERROR,
+    error
+  }
+}
 export function loadHomeBanners() {
   return {
     type: LOAD_HOME_BANNERS
@@ -79,4 +99,3 @@ export function homeBannersLoadingError(error: object): Action {
     error,
   };
 }
-

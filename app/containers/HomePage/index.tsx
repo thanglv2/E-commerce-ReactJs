@@ -10,21 +10,19 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useInjectReducer } from 'utils/injectReducer';
 import { useInjectSaga } from 'utils/injectSaga';
 import classNames from 'classnames';
-
+import Section from 'containers/Section';
 import LoadingIndicator from 'components/LoadingIndicator';
 import SilderWrapper from 'components/SilderWrapper';
-import { loadHomeBanners } from './actions';
-import { makeSelectHomeBanners } from './selectors';
+import { loadHomeBanners, getProducts } from './actions';
+import { makeSelectHomeBanners, makeSelectProducts } from './selectors';
 import reducer from './reducer';
 import saga from './saga';
-import { VerticalMenu } from 'containers/VerticalMenu';
-import { HorizontalMenu } from 'containers/HorizontalMenu';
-import { Section } from 'containers/Section';
 import BoxListProducts from 'components/BoxListProducts';
 
 const key = 'home';
 
 export function HomePage() {
+  const product = useSelector(makeSelectProducts());
   const homeBanners: any[] = useSelector(makeSelectHomeBanners());
   const dispatch = useDispatch();
 
@@ -32,8 +30,11 @@ export function HomePage() {
   useInjectSaga({ key, saga, mode: null });
 
   useEffect(() => {
-    dispatch(loadHomeBanners());
+    dispatch(getProducts());
   }, []);
+  useEffect(() => {
+    dispatch(loadHomeBanners());
+  }, [])
 
   const homeBannerItems = bannes => {
     return bannes.map(banner =>
@@ -52,7 +53,7 @@ export function HomePage() {
   }
 
   return (
-    <div>
+    <div className="container">
       <Helmet>
         <title>Home Page</title>
         <meta
@@ -80,22 +81,22 @@ export function HomePage() {
       </div>
 
       <Section />
-
-      <div className="container">
-        <section className="deal-of-the-day">
-          <BoxListProducts title="Deals Of The Day" hasBanner />
-        </section>
-        <section className="most-popular">
-          <BoxListProducts title="Most Popular" />
-        </section>
-        <section className="lastest-products m-t-md">
-          <BoxListProducts title="Latest products" />
-        </section>
-        <section className="lastest-products">
-          <BoxListProducts title="Latest Products" />
-        </section>
-      </div>
-    </div >
+      <section className="deal-of-the-day">
+        <BoxListProducts title="Deals Of The Day" hasBanner products={product.list} status={product.status} />
+      </section>
+      <section className="most-popular m-t-xl">
+        <BoxListProducts title="Most Popular" products={product.list} status={product.status} />
+      </section>
+      <section className="lastest-products m-t-xl">
+        <BoxListProducts title="Latest products" products={product.list} status={product.status} />
+      </section>
+      <section className="lastest-products m-t-xl">
+        <BoxListProducts title="Latest Products" products={product.list} status={product.status} />
+      </section>
+      <section className="picked-for-you m-t-xl">
+        <BoxListProducts title="Picked for you" products={product.list} status={product.status} />
+      </section>
+    </div>
   );
 }
 
