@@ -66,7 +66,7 @@ export function HomePage() {
         <div className="container">
           <div className="home-wrap">
             <div id="home-slick">
-              {homeBanners.length > 0 ?
+              {homeBanners && homeBanners.length > 0 ?
                 <SilderWrapper children={homeBannerItems(homeBanners)} />
                 :
                 <div className="banner banner-1">

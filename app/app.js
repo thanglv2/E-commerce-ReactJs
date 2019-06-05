@@ -22,9 +22,9 @@ import 'slick-carousel/slick/slick-theme.css';
 
 import './assets/css/style.css';
 
-
 // Import root app
 import App from 'containers/App';
+import SessionManager from 'utils/sessionManager';
 
 // Import Language Provider
 import LanguageProvider from 'containers/LanguageProvider';
@@ -42,6 +42,7 @@ import { translationMessages } from './i18n';
 // the index.html file and this observer)
 const openSansObserver = new FontFaceObserver('Open Sans', {});
 
+window.SessionManager = SessionManager;
 window.API_URL = process.env.NODE_ENV !== 'production'
   ? 'http://192.168.1.215:4000/'
   : 'https://product_url/';
