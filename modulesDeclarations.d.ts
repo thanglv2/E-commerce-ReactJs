@@ -4,3 +4,5 @@ declare module '*.jpg' {
 }
 
 declare module '*.less';
+
+declare var FB: any;

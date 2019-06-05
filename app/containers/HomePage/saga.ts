@@ -14,7 +14,8 @@ import { LOAD_ITEMS, LOAD_HOME_BANNERS, GET_PRODUCTS } from './constants';
  * Github repos request/response handler
  */
 
-// json-server --watch --host 192.168.1.215 db.json --routes ./routes.json --port 4000 --delay 3000
+// json-server --watch --host 192.168.1.215 db.json --routes ./routes.json --port 4000
+
 export function* getItems() {
   // Select username from store
   const itemName: string = yield select(makeSelectItemName());

@@ -44,6 +44,8 @@ module.exports = {
     "import/prefer-default-export": 0,
     "import/extensions": 0,
     "import/no-named-as-default": 0,
+    "import/no-webpack-loader-syntax": 0,
+    "import/no-extraneous-dependencies": 0,
     "jsx-a11y/aria-props": 2,
     "jsx-a11y/anchor-is-valid": 0,
     "jsx-a11y/heading-has-content": 0,
