@@ -62,6 +62,46 @@
       "numberLikes": 100,
       "availability": 1,
       "numberShares": 1234,
+      "isNewProduct": true,
+      "imageUrls": [
+        "https://colorlib.com/etc/e-shop/img/product01.jpg",
+        "https://colorlib.com/etc/e-shop/img/product01.jpg",
+        "https://colorlib.com/etc/e-shop/img/product01.jpg",
+        "https://colorlib.com/etc/e-shop/img/product01.jpg"
+      ],
+      "actualPrice": 100.0,
+      "currency": "VND",
+      "size": ["S", "XL", "SL"],
+      "color": "red",
+      "rates": 5,
+      "promotions": {
+        "salesOff": 20,
+        "discountedPrice": 20.0,
+        "startTime": "6/4/2019",
+        "endTime": "10/4/2019"
+      }
+    },
+    {
+      "productName": "Product name here",
+      "productDes": "Descriptions",
+      "reviews": [
+        {
+          "content": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
+          "reviewBy": {
+            "username": "Sonnb",
+            "displayName": "Sơn",
+            "avatar": "http://localhost:3000/05ee2e0e123f808b102febd78b692415.jpg",
+            "email": "test@gmail.com",
+            "address": "Ha Noi, Viet Nam"
+          },
+          "timestamp": "6/4/2019",
+          "rates": 4
+        }
+      ],
+      "sku": "12345t",
+      "numberLikes": 100,
+      "availability": 1,
+      "numberShares": 1234,
       "isNewProduct": false,
       "imageUrls": [
         "https://colorlib.com/etc/e-shop/img/product01.jpg",
