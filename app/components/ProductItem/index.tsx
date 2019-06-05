@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import ImageDefault from 'Images/product01.jpg';
 import classnames from 'classnames';
-import { object } from 'prop-types';
+import LazyLoad from 'react-lazyload';
+import FadeLoader from 'react-spinners/FadeLoader';
+import { css } from '@emotion/core';
 
 export interface Props {
   saleOff: Number,
@@ -13,6 +15,13 @@ export interface Props {
   isNew: Boolean,
   addToCard: Function,
 };
+const override = css`
+    margin: 50px auto;
+    display: block;
+    min-height: 200px;
+    text-align: center;
+`;
+
 export default function ProductItem(props) {
   const { product } = props;
   const [count, setCount] = useState(0);
@@ -32,7 +41,24 @@ export default function ProductItem(props) {
           <li><span>00 S</span></li>
         </ul>
         <button className="main-btn quick-view"><i className="fa fa-search-plus"></i> Quick view</button>
-        <img src={product.imageUrls[0]} alt="" />
+        <LazyLoad
+          height={200}
+          debounce={200}
+          placeholder={
+            <FadeLoader
+              css={override}
+              sizeUnit={"px"}
+              height={15}
+              width={5}
+              radius={2}
+              margin={"2px"}
+              color={'#F8694A'}
+              loading
+            />
+          }
+        >
+          <img src={product.imageUrls[0]} alt="" />
+        </LazyLoad>
       </div>
       <div className="product-body">
         <h3 className="product-price">${product.actualPrice} <del className="product-old-price">$45.00</del></h3>

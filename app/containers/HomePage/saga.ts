@@ -3,6 +3,7 @@
  */
 
 import { call, put, select, takeLatest, takeEvery } from 'redux-saga/effects';
+import delay from '@redux-saga/delay-p'
 // import { LOAD_REPOS } from 'containers/App/constants';
 
 import request from 'utils/request';
