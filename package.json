@@ -65,6 +65,7 @@
   },
   "dependencies": {
     "@babel/polyfill": "7.4.3",
+    "bootstrap": "^3.4.1",
     "chalk": "2.4.2",
     "classnames": "^2.2.6",
     "compression": "1.7.4",
@@ -80,6 +81,7 @@
     "ip": "1.1.5",
     "lodash": "4.17.11",
     "minimist": "1.2.0",
+    "offline-plugin": "^5.0.6",
     "prop-types": "15.7.2",
     "react": "16.8.6",
     "react-bootstrap": "0.32.4",
@@ -87,18 +89,18 @@
     "react-facebook-login": "^4.1.1",
     "react-helmet": "6.0.0-beta",
     "react-intl": "2.8.0",
+    "react-lazyload": "^2.6.1",
     "react-redux": "7.1.0-alpha.4",
     "react-router-dom": "5.0.0",
     "react-slick": "^0.24.0",
+    "react-spinners": "^0.5.4",
     "redux": "4.0.1",
     "redux-saga": "1.0.2",
-    "bootstrap": "^3.4.1",
     "reselect": "4.0.0",
     "sanitize.css": "8.0.0",
     "slick-carousel": "^1.8.1",
     "styled-components": "4.2.0",
-    "uuidv4": "^4.0.0",
-    "offline-plugin": "^5.0.6"
+    "uuidv4": "^4.0.0"
   },
   "devDependencies": {
     "@babel/cli": "7.4.3",
