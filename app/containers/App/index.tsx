@@ -6,7 +6,7 @@
  * contain code that should be seen on all pages. (e.g. navigation bar)
  */
 
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Helmet } from 'react-helmet';
 import { Switch, Route } from 'react-router-dom';
 
@@ -20,6 +20,15 @@ import Footer from 'components/Footer';
 
 import GlobalStyle from '../../global-styles';
 import styles from './App.less';
+
+declare module 'react' {
+  interface HTMLAttributes<T> {
+    attribution?: string;
+    page_id?: string;
+    logged_in_greeting?: string;
+    logged_out_greeting?: string;
+  }
+}
 
 export default function App() {
   return (
@@ -38,6 +47,13 @@ export default function App() {
         <Route path="/shopping-cart" component={ShoppingCart} />
         <Route path="" component={NotFoundPage} />
       </Switch>
+      <div id="fb-root"></div>
+      <div className="fb-customerchat"
+        attribution="setup_tool"
+        page_id="681926292230886"
+        logged_in_greeting="Chào bạn, mình có thể giúp gì cho bạn không?"
+        logged_out_greeting="Đăng nhập để tiếp tục">
+      </div>
       <Footer />
       <GlobalStyle />
     </div>
